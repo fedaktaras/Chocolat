@@ -53,3 +53,21 @@ void add_new_product::on_buttonBox_accepted()
     query->exec();
 
 }
+
+void add_new_product::on_pushButton_3_clicked()
+{
+    QSqlQuery *query = new QSqlQuery;
+    query->prepare("insert into in_stock (product_name, type_name, realisation_price, is_recept, is_count) "
+                   "values (:a, :b, :c, :d, :e)");
+    query->bindValue(":a", ui->lineEdit->text());
+    query->bindValue(":b", ui->comboBox->currentText());
+    query->bindValue(":c", ui->doubleSpinBox->value());
+    query->bindValue(":d", ui->checkBox->isChecked());
+    bool ch1 = ui->checkBox_2->isChecked();
+    query->bindValue(":e", !ch1);
+    query->exec();
+    ui->lineEdit->clear();
+    ui->doubleSpinBox->clear();
+    ui->checkBox->setChecked(false);
+    ui->checkBox_2->setChecked(false);
+}

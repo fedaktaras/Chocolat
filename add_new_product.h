@@ -26,6 +26,8 @@ private slots:
 
     void on_buttonBox_accepted();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::add_new_product *ui;
 
