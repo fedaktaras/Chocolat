@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>574</width>
-    <height>524</height>
+    <height>592</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -22,8 +22,8 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>450</y>
+     <x>390</x>
+     <y>470</y>
      <width>151</width>
      <height>61</height>
     </rect>
@@ -38,10 +38,10 @@
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>310</y>
-     <width>391</width>
-     <height>131</height>
+     <x>10</x>
+     <y>230</y>
+     <width>361</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="focusPolicy">
@@ -56,8 +56,8 @@
     <rect>
      <x>10</x>
      <y>30</y>
-     <width>256</width>
-     <height>271</height>
+     <width>251</width>
+     <height>181</height>
     </rect>
    </property>
   </widget>
@@ -67,7 +67,7 @@
      <x>290</x>
      <y>30</y>
      <width>256</width>
-     <height>271</height>
+     <height>181</height>
     </rect>
    </property>
   </widget>
@@ -95,6 +95,63 @@
    </property>
    <property name="text">
     <string>Назва Продукту</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>230</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Видалити останній</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>340</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>22</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>350</y>
+     <width>47</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>грн</string>
    </property>
   </widget>
  </widget>

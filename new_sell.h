@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include <QString>
 #include <QSqlQueryModel>
+#include <QTableWidgetItem>
 #include "ui_new_sell.h"
 
 namespace Ui {
@@ -24,9 +25,17 @@ private slots:
 
     void on_listView_activated(const QModelIndex &index);
 
-    void on_listView_2_activated(const QModelIndex &index);
+    void on_listView_2_activated();
+
+    void on_pushButton_2_clicked();
+
+    void on_tableWidget_itemSelectionChanged();
+
 
 private:
+    int tableRow = 0;
+    int tableCol = 0;
+
     Ui::new_sell *ui;
 };
 

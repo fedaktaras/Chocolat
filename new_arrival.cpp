@@ -50,7 +50,7 @@ void new_arrival::on_pushButtonadd_clicked()
         query2->bindValue(":b", ui->lineEditAmount->text().toInt());
 
         query1->prepare("insert into arrivals (product_name, amount, total_price, price_per_one_or_kg,"
-                        "company_name, sails_person) values (:a, :b, :c, :d, :e, :f)");
+                        "company_name) values (:a, :b, :c, :d, :e)");
         query1->bindValue(":b", ui->lineEditAmount->text().toInt());
     }
     else
@@ -59,7 +59,7 @@ void new_arrival::on_pushButtonadd_clicked()
         query2->bindValue(":b", ui->lineEditAmount->text().toDouble());
 
         query1->prepare("insert into arrivals (product_name, amount_kg, total_price, price_per_one_or_kg,"
-                        "company_name, sails_person) values (:a, :b, :c, :d, :e, :f )");
+                        "company_name) values (:a, :b, :c, :d, :e)");
         query1->bindValue(":b", ui->lineEditAmount->text().toDouble());
     }
     query2->bindValue(":c", ui->comboBox->currentText());
@@ -75,12 +75,12 @@ void new_arrival::on_pushButtonadd_clicked()
     x /= 100;
     query1->bindValue(":d", x);
     query1->bindValue(":e", ui->lineEditCompany->text());
-    query1->bindValue(":f", ui->lineEditSPerson->text());
+
 
     query1->exec();
 
     ui->lineEditAmount->clear();
     ui->lineEditCompany->clear();
     ui->lineEditPrice->clear();
-    ui->lineEditSPerson->clear();
+
 }
