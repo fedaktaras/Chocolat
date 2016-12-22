@@ -2,6 +2,10 @@
 #define NEW_SELL_H
 
 #include <QDialog>
+#include <QSqlQuery>
+#include <QString>
+#include <QSqlQueryModel>
+#include "ui_new_sell.h"
 
 namespace Ui {
 class new_sell;
@@ -14,6 +18,13 @@ class new_sell : public QDialog
 public:
     explicit new_sell(QWidget *parent = 0);
     ~new_sell();
+
+private slots:
+
+
+    void on_listView_activated(const QModelIndex &index);
+
+    void on_listView_2_activated(const QModelIndex &index);
 
 private:
     Ui::new_sell *ui;

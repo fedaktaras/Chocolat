@@ -33,31 +33,54 @@ void new_arrival::on_comboBox_2_currentIndexChanged()
 
 void new_arrival::on_pushButtonadd_clicked()
 {
-    //QSqlQueryModel *model1 = new QSqlQueryModel;
+    QSqlQuery *query = new QSqlQuery;
     QSqlQuery *query1 = new QSqlQuery;
-    //QSqlQueryModel *model2 = new QSqlQueryModel;
     QSqlQuery *query2 = new QSqlQuery;
-    query1->prepare("select is_count from in_stock where product_name = :a");
-    query1->bindValue(":a", ui->comboBox->currentText());
-    query1->exec();
-    QSqlRecord qr = query1->record();
-    query1->next();
 
+    query->prepare("select is_count from in_stock where product_name = :a");
+    query->bindValue(":a", ui->comboBox->currentText());
+    query->exec();
+    query->next();
 
-    bool is_count = query1->value(0).toBool();//qr.value("is_count").toBool();
+    bool is_count = query->value(0).toBool();
 
     if (is_count)
     {
         query2->prepare("update in_stock set available_count=:b+available_count where product_name = :c" );
-        query2->bindValue(":b", ui->lineEdit->text().toInt());
+        query2->bindValue(":b", ui->lineEditAmount->text().toInt());
+
+        query1->prepare("insert into arrivals (product_name, amount, total_price, price_per_one_or_kg,"
+                        "company_name, sails_person) values (:a, :b, :c, :d, :e, :f)");
+        query1->bindValue(":b", ui->lineEditAmount->text().toInt());
     }
     else
     {
         query2->prepare("update in_stock set available_weight = :b+available_weight where product_name = :c" );
-        query2->bindValue(":b", ui->lineEdit->text().toDouble());
+        query2->bindValue(":b", ui->lineEditAmount->text().toDouble());
+
+        query1->prepare("insert into arrivals (product_name, amount_kg, total_price, price_per_one_or_kg,"
+                        "company_name, sails_person) values (:a, :b, :c, :d, :e, :f )");
+        query1->bindValue(":b", ui->lineEditAmount->text().toDouble());
     }
     query2->bindValue(":c", ui->comboBox->currentText());
     query2->exec();
-    ui->lineEdit->clear();
-    ui->lineEdit_2->clear();
+
+
+    query1->bindValue(":a", ui->comboBox->currentText());
+    query1->bindValue(":c", ui->lineEditPrice->text().toDouble());
+
+    double x = (ui->lineEditPrice->text().toDouble())/(ui->lineEditAmount->text().toDouble());
+    x *= 100;
+    x = std::floor(x);
+    x /= 100;
+    query1->bindValue(":d", x);
+    query1->bindValue(":e", ui->lineEditCompany->text());
+    query1->bindValue(":f", ui->lineEditSPerson->text());
+
+    query1->exec();
+
+    ui->lineEditAmount->clear();
+    ui->lineEditCompany->clear();
+    ui->lineEditPrice->clear();
+    ui->lineEditSPerson->clear();
 }

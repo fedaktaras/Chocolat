@@ -5,12 +5,12 @@
 #include <QSqlQuery>
 #include <QString>
 #include <QSqlQueryModel>
-#include <QSqlRecord>
+#include <cmath>
+
 
 namespace Ui {
 class new_arrival;
 }
-//~new_arrival();
 class new_arrival : public QDialog
 {
     Q_OBJECT
