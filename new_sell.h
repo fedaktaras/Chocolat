@@ -32,9 +32,11 @@ private slots:
     void on_tableWidget_itemSelectionChanged();
 
 
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_clicked();
+
 private:
-    int tableRow = 0;
-    int tableCol = 0;
 
     Ui::new_sell *ui;
 };
