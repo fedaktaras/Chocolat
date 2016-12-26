@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QtSql>
 #include <QStandardPaths>
+#include <QShortcut>
 #include "new_sell.h"
 #include "add_new_product.h"
 #include "new_arrival.h"
@@ -22,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         ui->statusBar->showMessage("Встановленно з'єднання", 100000);
     }
+    QShortcut *sell = new QShortcut(QKeySequence(Qt::Key_Home), ui->pushButton);
+    connect(sell, SIGNAL(activated()), this, SLOT(on_pushButton_clicked()));
 }
 
 MainWindow::~MainWindow()

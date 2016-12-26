@@ -6,6 +6,7 @@
 #include <QString>
 #include <QSqlQueryModel>
 #include <QTableWidgetItem>
+#include <QShortcut>
 #include "ui_new_sell.h"
 
 namespace Ui {
@@ -25,16 +26,17 @@ private slots:
 
     void on_listView_activated(const QModelIndex &index);
 
-    void on_listView_2_activated();
+    void on_listView_2_activated(const QModelIndex &index);
 
     void on_pushButton_2_clicked();
 
     void on_tableWidget_itemSelectionChanged();
 
 
-    void on_pushButton_3_clicked();
-
     void on_pushButton_clicked();
+    void switch_lists();
+    void switch_lists2();
+    void delete_last();
 
 private:
 
