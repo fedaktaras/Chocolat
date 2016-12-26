@@ -19,9 +19,15 @@ new_sell::new_sell(QWidget *parent) :
     model->setQuery(*query);
     ui->listView->setModel(model);
     if (ui->tableWidget->rowCount()<1)
+    {
         ui->pushButton_2->setEnabled(false);
+        ui->pushButton->setEnabled(false);
+    }
     else
+    {
         ui->pushButton_2->setEnabled(true);
+        ui->pushButton->setEnabled(true);
+    }
     QShortcut *right = new QShortcut(QKeySequence(Qt::Key_Right), ui->listView);
     connect(right, SIGNAL(activated()), this, SLOT(switch_lists()));
     QShortcut *left = new QShortcut(QKeySequence(Qt::Key_Left), ui->listView_2);
@@ -104,11 +110,16 @@ void new_sell::on_listView_2_activated(const QModelIndex &index)                
     ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 0, item0);
     ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 1, item1);
     ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 2, item2);
-
     if (ui->tableWidget->rowCount()<1)
+    {
         ui->pushButton_2->setEnabled(false);
+        ui->pushButton->setEnabled(false);
+    }
     else
+    {
         ui->pushButton_2->setEnabled(true);
+        ui->pushButton->setEnabled(true);
+    }
 
     double total = 0;
     for (int i = 0; i<ui->tableWidget->rowCount(); i++)
@@ -127,9 +138,15 @@ void new_sell::on_pushButton_2_clicked()
 
 
     if (ui->tableWidget->rowCount()<1)
+    {
         ui->pushButton_2->setEnabled(false);
+        ui->pushButton->setEnabled(false);
+    }
     else
+    {
         ui->pushButton_2->setEnabled(true);
+        ui->pushButton->setEnabled(true);
+    }
 
     double total = 0;
     for (int i = 0; i<ui->tableWidget->rowCount(); i++)
@@ -158,6 +175,11 @@ void new_sell::on_tableWidget_itemSelectionChanged()
 
 void new_sell::on_pushButton_clicked()  //підтвердити
 {
+    QMessageBox a;
+    a.setText("Готово");
+    a.setWindowTitle("Done");
+    a.show();
+
     QSqlQuery *query = new QSqlQuery;
     QSqlQuery *query1 = new QSqlQuery;
     QSqlQuery *query2 = new QSqlQuery;
@@ -195,4 +217,5 @@ void new_sell::on_pushButton_clicked()  //підтвердити
         query2->bindValue(":c", ui->tableWidget->item(i, 0)->data(Qt::DisplayRole).toString());
         query2->exec();
     }
+    this->close();
 }

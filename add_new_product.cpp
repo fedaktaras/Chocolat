@@ -42,14 +42,23 @@ void add_new_product::on_pushButton_2_clicked()
 void add_new_product::on_buttonBox_accepted()
 {
     QSqlQuery *query = new QSqlQuery;
-    query->prepare("insert into in_stock (product_name, type_name, realisation_price, is_recept, is_count) "
-                   "values (:a, :b, :c, :d, :e)");
+    query->prepare("insert into in_stock (product_name, type_name, realisation_price, "
+                   "is_recept, is_count, available_count, available_weight) "
+                   "values (:a, :b, :c, :d, :e, :f, :g)");
     query->bindValue(":a", ui->lineEdit->text());
     query->bindValue(":b", ui->comboBox->currentText());
     query->bindValue(":c", ui->doubleSpinBox->value());
     query->bindValue(":d", ui->checkBox->isChecked());
     bool ch1 = ui->checkBox_2->isChecked();
     query->bindValue(":e", !ch1);
+    if (!ch1)
+    {
+        query->bindValue(":f", 0);
+    }
+    else
+    {
+        query->bindValue(":g", "NULL");
+    }
     query->exec();
 
 }
@@ -57,14 +66,25 @@ void add_new_product::on_buttonBox_accepted()
 void add_new_product::on_pushButton_3_clicked()
 {
     QSqlQuery *query = new QSqlQuery;
-    query->prepare("insert into in_stock (product_name, type_name, realisation_price, is_recept, is_count) "
-                   "values (:a, :b, :c, :d, :e)");
+    query->prepare("insert into in_stock (product_name, type_name, realisation_price, "
+                   "is_recept, is_count, available_count, available_weight) "
+                   "values (:a, :b, :c, :d, :e, :f, :g)");
     query->bindValue(":a", ui->lineEdit->text());
     query->bindValue(":b", ui->comboBox->currentText());
     query->bindValue(":c", ui->doubleSpinBox->value());
     query->bindValue(":d", ui->checkBox->isChecked());
     bool ch1 = ui->checkBox_2->isChecked();
     query->bindValue(":e", !ch1);
+    if (!ch1)
+    {
+        query->bindValue(":f", 0);
+
+    }
+    else
+    {
+        query->bindValue(":g", 0);
+
+    }
     query->exec();
     ui->lineEdit->clear();
     ui->doubleSpinBox->clear();

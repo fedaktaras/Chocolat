@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>238</width>
-    <height>219</height>
+    <width>474</width>
+    <height>282</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>40</y>
+      <x>300</x>
+      <y>100</y>
       <width>161</width>
       <height>101</height>
      </rect>
@@ -30,6 +30,32 @@
     </property>
     <property name="text">
      <string>Продаж</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>344</x>
+      <y>10</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>додати товар</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>344</x>
+      <y>50</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Прибуття товару</string>
     </property>
    </widget>
   </widget>
@@ -47,7 +73,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>238</width>
+     <width>474</width>
      <height>21</height>
     </rect>
    </property>
@@ -56,7 +82,6 @@
      <string>товар</string>
     </property>
     <addaction name="action"/>
-    <addaction name="action_2"/>
     <addaction name="action_3"/>
    </widget>
    <addaction name="menu_2"/>

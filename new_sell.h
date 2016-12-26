@@ -7,6 +7,7 @@
 #include <QSqlQueryModel>
 #include <QTableWidgetItem>
 #include <QShortcut>
+#include <QMessageBox>
 #include "ui_new_sell.h"
 
 namespace Ui {

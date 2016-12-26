@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
     QSqlDatabase choc_db = QSqlDatabase::addDatabase("QSQLITE");
     choc_db.setDatabaseName("D:/Chocolate.sqlite");
@@ -47,5 +48,17 @@ void MainWindow::on_action_triggered()
 void MainWindow::on_action_3_triggered()
 {
     new_arrival *a = new new_arrival;
+    a->show();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    new_arrival *a = new new_arrival;
+    a->show();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    add_new_product *a = new add_new_product;
     a->show();
 }

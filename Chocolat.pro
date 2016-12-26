@@ -6,6 +6,8 @@
 
 QT       += core gui sql
 
+RC_ICONS = choc.ico
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Chocolat

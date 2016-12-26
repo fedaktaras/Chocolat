@@ -49,8 +49,8 @@ void new_arrival::on_pushButtonadd_clicked()
         query2->prepare("update in_stock set available_count=:b+available_count where product_name = :c" );
         query2->bindValue(":b", ui->lineEditAmount->text().toInt());
 
-        query1->prepare("insert into arrivals (product_name, amount, total_price, price_per_one_or_kg,"
-                        "company_name) values (:a, :b, :c, :d, :e)");
+        query1->prepare("insert into arrivals (product_name, amount, amount_kg , total_price, price_per_one_or_kg,"
+                        "company_name) values (:a, :b, NULL, :c, :d, :e)");
         query1->bindValue(":b", ui->lineEditAmount->text().toInt());
     }
     else
@@ -58,8 +58,8 @@ void new_arrival::on_pushButtonadd_clicked()
         query2->prepare("update in_stock set available_weight = :b+available_weight where product_name = :c" );
         query2->bindValue(":b", ui->lineEditAmount->text().toDouble());
 
-        query1->prepare("insert into arrivals (product_name, amount_kg, total_price, price_per_one_or_kg,"
-                        "company_name) values (:a, :b, :c, :d, :e)");
+        query1->prepare("insert into arrivals (product_name, amount, amount_kg, total_price, price_per_one_or_kg,"
+                        "company_name) values (:a, NULL, :b, :c, :d, :e)");
         query1->bindValue(":b", ui->lineEditAmount->text().toDouble());
     }
     query2->bindValue(":c", ui->comboBox->currentText());
